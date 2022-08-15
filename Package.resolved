@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "kvstandardconnection",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/thanhhvt-citigo/KVStandardConnection.git",
+      "state" : {
+        "branch" : "Main",
+        "revision" : "abc6c8623e716258b410d5493159ec7bcba4a88f"
+      }
+    }
+  ],
+  "version" : 2
+}

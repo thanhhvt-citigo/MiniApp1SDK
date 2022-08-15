@@ -5,6 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "MiniApp1SDK",
+    platforms: [.iOS(.v13)],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
@@ -12,6 +13,7 @@ let package = Package(
             targets: ["MiniApp1SDK"]),
     ],
     dependencies: [
+        .package(url: "https://github.com/thanhhvt-citigo/KVStandardConnection.git", branch: "Main")
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
     ],
@@ -20,7 +22,7 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "MiniApp1SDK",
-            dependencies: []),
+            dependencies: ["KVStandardConnection"]),
         .testTarget(
             name: "MiniApp1SDKTests",
             dependencies: ["MiniApp1SDK"]),
