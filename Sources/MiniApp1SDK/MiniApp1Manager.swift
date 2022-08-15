@@ -6,18 +6,18 @@
 //
 
 import Foundation
-import UIKit
 import KVStandardConnection
+import UIKit
 
-public class MiniAppManager: MiniApp {
+public class MiniApp1Manager: MiniApp {
     public var appId: String
     
     public var delegate: MiniappDelegate?
     public var superAppId: String
  
     public var rootViewController: UIViewController? {
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.module)
-        return storyboard.instantiateViewController(withIdentifier: "ViewController3") as? ViewController3
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        return storyboard.instantiateViewController(withIdentifier: "ViewController") as? ViewController
     }
     
     public func dispatch(_ action: MiniAppAction) {
@@ -29,3 +29,4 @@ public class MiniAppManager: MiniApp {
         self.superAppId = superAppId
     }
 }
+

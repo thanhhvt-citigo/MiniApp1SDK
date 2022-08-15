@@ -16,8 +16,22 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1oA-yf-5Yn">
+                                <rect key="frame" x="162" y="432.5" width="90.5" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Show vc 2"/>
+                                <connections>
+                                    <action selector="showVC2Action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kgx-fE-QLj"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemPinkColor"/>
+                        <constraints>
+                            <constraint firstItem="1oA-yf-5Yn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1eY-46-6Kn"/>
+                            <constraint firstItem="1oA-yf-5Yn" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Kjx-RE-6FW"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="W1D-KX-mtg"/>
                 </viewController>
@@ -58,10 +72,25 @@
         <!--Main-->
         <scene sceneID="osn-oB-bkV">
             <objects>
-                <viewControllerPlaceholder storyboardName="Main" bundleIdentifier="MiniApp1SDK-MiniApp1SDK-resources" id="hBy-eK-Zsa" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Main" bundleIdentifier="MiniApp1-MiniApp1-resources" id="hBy-eK-Zsa" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DWo-qv-814" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-39" y="-368"/>
+        </scene>
+        <!--View Controller4-->
+        <scene sceneID="Xob-RB-1WM">
+            <objects>
+                <viewController storyboardIdentifier="ViewController4" id="r90-QV-A1B" customClass="ViewController4" customModule="MiniApp1SDK" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eEp-Pb-05l">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="9cJ-MM-3dA"/>
+                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3FA-dk-503" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2954" y="92"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vNa-GW-4oo">
@@ -83,6 +112,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemMintColor">
             <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

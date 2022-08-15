@@ -11,7 +11,14 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        navigationItem.title = "VC1"
+    }
+    @IBAction func showVC2Action(_ sender: Any) {
+        guard let vc2 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewController2") as? ViewController2 else {
+            return
+        }
+        
+        navigationController?.pushViewController(vc2, animated: true)
     }
 }
 
