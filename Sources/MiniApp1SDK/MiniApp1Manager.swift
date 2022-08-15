@@ -51,8 +51,8 @@ public class MiniApp1Manager: MiniApp {
         guard let presentationStyle = presentationStyle else {
             return
         }
-        rootViewController?.dismiss(animated: true, completion: {
-            self.rootViewController?.navigationController?.popToViewController(presentationStyle.root, animated: true)
+        presentationStyle.root.dismiss(animated: true, completion: {
+            self.presentationStyle?.root.navigationController?.popToViewController(presentationStyle.root, animated: true)
             completion?()
         })
     }
