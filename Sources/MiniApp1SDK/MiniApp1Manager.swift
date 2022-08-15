@@ -16,7 +16,8 @@ public class MiniAppManager: MiniApp {
     public var superAppId: String
  
     public var rootViewController: UIViewController? {
-        return UIApplication.shared.keyWindow?.rootViewController
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.module)
+        return storyboard.instantiateViewController(withIdentifier: "ViewController3") as? ViewController3
     }
     
     public func dispatch(_ action: MiniAppAction) {
