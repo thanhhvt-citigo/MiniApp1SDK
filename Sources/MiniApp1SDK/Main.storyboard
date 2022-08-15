@@ -70,14 +70,25 @@
                                     <action selector="showVC4Action:" destination="W5U-D3-KcY" eventType="touchUpInside" id="whg-kn-T0a"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="riM-2d-Izs">
+                                <rect key="frame" x="182.5" y="483.5" width="49" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9Af-1e-pIp"/>
                         <color key="backgroundColor" systemColor="systemYellowColor"/>
                         <constraints>
                             <constraint firstItem="ifi-Ag-P7x" firstAttribute="centerY" secondItem="qp3-ls-y2b" secondAttribute="centerY" id="VyM-mr-cpv"/>
+                            <constraint firstItem="riM-2d-Izs" firstAttribute="centerX" secondItem="qp3-ls-y2b" secondAttribute="centerX" id="fFa-Bb-2KB"/>
+                            <constraint firstItem="riM-2d-Izs" firstAttribute="top" secondItem="ifi-Ag-P7x" secondAttribute="bottom" constant="20" id="u0F-4f-pgD"/>
                             <constraint firstItem="ifi-Ag-P7x" firstAttribute="centerX" secondItem="qp3-ls-y2b" secondAttribute="centerX" id="y4E-65-xSX"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="statusLabel" destination="riM-2d-Izs" id="8UX-UQ-RBb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bMk-9D-9iV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

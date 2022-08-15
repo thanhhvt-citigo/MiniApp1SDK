@@ -20,11 +20,7 @@ public class MiniApp1Manager: MiniApp {
     public required init(appId: String, superAppId: String, permissions: [MiniAppPermissionScope.RawValue]) {
         self.appId = appId
         self.superAppId = superAppId
-        request(permissions: permissions)
-    }
-    
-    private func request(permissions: [MiniAppPermissionScope.RawValue]) {
-        // request all permissions here
+        self.permissions = permissions.compactMap { .init(rawValue: $0) }
     }
     
     struct PresentationStyle {
@@ -50,6 +46,8 @@ public class MiniApp1Manager: MiniApp {
             root.present(rootViewController, animated: true)
         }
     }
+    
+    let permissions: [MiniAppPermissionScope]
     
     private var presentationStyle: PresentationStyle?
     
