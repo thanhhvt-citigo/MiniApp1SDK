@@ -10,6 +10,21 @@ import KVStandardConnection
 import UIKit
 
 public class MiniApp1Manager: MiniApp {
+    public func show(presentationType: MiniAppPresentationType, root: UIViewController, isNavigationControllerRequired: Bool) {
+        guard let rootViewController = rootViewController else {
+            return
+        }
+        switch presentationType {
+        case .push:
+            root.navigationController?.pushViewController(rootViewController, animated: true)
+        case .present:
+            let rootView: UIViewController = {
+                return isNavigationControllerRequired ? UINavigationController(rootViewController: rootViewController) : rootViewController
+            }()
+            root.present(rootView, animated: true)
+        }
+    }
+    
     public var appId: String
     
     public var delegate: MiniappDelegate?
