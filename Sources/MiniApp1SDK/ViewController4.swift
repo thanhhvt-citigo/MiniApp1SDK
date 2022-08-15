@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import KVStandardConnection
 
 class ViewController4: UIViewController {
 
@@ -14,13 +15,22 @@ class ViewController4: UIViewController {
         navigationItem.title = "VC4"
     }
     
-    @IBAction func dismissMiniAppAction(_ sender: Any) {
-        MiniApp1Manager.shared.dismiss {
-            print("dismiss inside mini app")
-        }
+    @IBAction func fakeErrorAction(_ sender: Any) {
+        showAlert(title: "An error occur", message: "Oops, something wrong!", action: nil, cancel: {
+            let manager = MiniApp1Manager.shared
+            manager?.delegate?.received?(action: TerminatedAction())
+        })
     }
     
     deinit {
         print("View Controller 4 deinit")
     }
+}
+
+public class TerminatedAction: MiniAppAction {
+    public var appId: String = MiniApp1Manager.shared.appId
+    
+    public var name: String = "Terminated"
+    
+    public var params: [String : Any] = ["Param1": "Here is param1", "Param2": "Here is param2"]
 }

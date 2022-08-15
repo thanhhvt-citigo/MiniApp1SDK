@@ -14,7 +14,10 @@ class ViewController3: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "VC3"
-        checkNotificationPermission()
+        if MiniApp1Manager.shared.permissions.contains(.notifications) {
+            checkNotificationPermission()
+        }
+        // same for camera permission
     }
     
     private func checkNotificationPermission() {
@@ -31,7 +34,12 @@ class ViewController3: UIViewController {
                             self?.showAlert(title: "An error occur", message: "Request notification failed")
                             self?.statusLabel.text = "Request failed"
                         } else {
-                            self?.statusLabel.text = success ? "Permission authorized" : "Permission denied"
+                            if success {
+                                self?.statusLabel.text = "Permission authorized"
+                                self?.registerSuperAppNotification()
+                            } else {
+                                self?.statusLabel.text = "Permission denied"
+                            }
                         }
                     }
                 }
@@ -49,6 +57,16 @@ class ViewController3: UIViewController {
                 }
             }
         }
+    }
+    
+    private func registerSuperAppNotification() {
+        let superAppId = MiniApp1Manager.shared.superAppId
+        registerRemoteNotification(with: superAppId)
+    }
+    
+    private func registerRemoteNotification(with superAppId: String) {
+        // call backend for notification registration
+        // super app id used for determinding which app should be registered
     }
     
     @IBAction func showVC4Action(_ sender: Any) {
