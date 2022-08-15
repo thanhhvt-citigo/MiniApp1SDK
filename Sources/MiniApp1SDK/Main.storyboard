@@ -115,7 +115,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Fake error and dismiss"/>
                                 <connections>
-                                    <action selector="dismissMiniAppAction:" destination="r90-QV-A1B" eventType="touchUpInside" id="88f-pt-zpZ"/>
+                                    <action selector="fakeErrorAction:" destination="r90-QV-A1B" eventType="touchUpInside" id="KDG-9q-doo"/>
                                 </connections>
                             </button>
                         </subviews>
