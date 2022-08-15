@@ -22,12 +22,15 @@ public class MiniApp1Manager: MiniApp {
         self.presentationStyle = PresentationStyle(type: presentationType, root: root)
         switch presentationType {
         case .push:
-            root.navigationController?.pushViewController(rootViewController, animated: true)
+            if let navigationController = (rootViewController as? UINavigationController) {
+                if let firstVC = navigationController.viewControllers.first {
+                    root.navigationController?.pushViewController(firstVC, animated: true)
+                }
+            } else {
+                root.navigationController?.pushViewController(rootViewController, animated: true)
+            }
         case .present:
-            let rootView: UIViewController = {
-                return isNavigationControllerRequired ? UINavigationController(rootViewController: rootViewController) : rootViewController
-            }()
-            root.present(rootView, animated: true)
+            root.present(rootViewController, animated: true)
         }
     }
     
