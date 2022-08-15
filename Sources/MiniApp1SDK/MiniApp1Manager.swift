@@ -10,6 +10,13 @@ import KVStandardConnection
 import UIKit
 
 public class MiniApp1Manager: MiniApp {
+    static var shared: MiniApp1Manager!
+    
+    static func createInstance(appId: String, superAppId: String, permissions: [MiniAppPermissionScope.RawValue]) -> MiniApp1Manager {
+        shared = .init(appId: appId, superAppId: superAppId, permissions: permissions)
+        return shared
+    }
+    
     public required init(appId: String, superAppId: String, permissions: [MiniAppPermissionScope.RawValue]) {
         self.appId = appId
         self.superAppId = superAppId

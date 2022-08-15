@@ -14,4 +14,14 @@ class ViewController3: UIViewController {
         navigationItem.title = "VC3"
     }
 
+    deinit {
+        print("View Controller 3 deinit")
+    }
+    @IBAction func showVC4Action(_ sender: Any) {
+        guard let vc4 = UIStoryboard.current.instantiateViewController(withIdentifier: "ViewController4") as? ViewController4 else {
+            return
+        }
+        
+        navigationController?.pushViewController(vc4, animated: true)
+    }
 }

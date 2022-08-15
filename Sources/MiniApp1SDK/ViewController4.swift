@@ -13,5 +13,14 @@ class ViewController4: UIViewController {
         super.viewDidLoad()
         navigationItem.title = "VC4"
     }
-
+    
+    @IBAction func dismissMiniAppAction(_ sender: Any) {
+        MiniApp1Manager.shared.dismiss {
+            print("dismiss inside mini app")
+        }
+    }
+    
+    deinit {
+        print("View Controller 4 deinit")
+    }
 }

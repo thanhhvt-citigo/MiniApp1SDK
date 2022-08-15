@@ -20,5 +20,9 @@ class ViewController: UIViewController {
         
         navigationController?.pushViewController(vc2, animated: true)
     }
+    
+    deinit {
+        print("View Controller deinit")
+    }
 }
 

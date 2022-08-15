@@ -16,9 +16,13 @@ class ViewController2: UIViewController {
     }
     
     @objc private func modalPresent() {
-        guard let vc4 = UIStoryboard.current.instantiateViewController(withIdentifier: "ViewController4") as? ViewController4 else {
+        guard let vc3 = UIStoryboard.current.instantiateViewController(withIdentifier: "ViewController3") as? ViewController3 else {
             return
         }
-        present(vc4, animated: true)
+        present(UINavigationController(rootViewController: vc3), animated: true)
+    }
+    
+    deinit {
+        print("View Controller 2 deinit")
     }
 }
