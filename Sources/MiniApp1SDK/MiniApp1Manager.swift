@@ -10,12 +10,22 @@ import KVStandardConnection
 import UIKit
 
 public class MiniApp1Manager: MiniApp {
+    public required init(appId: String, superAppId: String, permissions: [MiniAppPermissionScope.RawValue]) {
+        self.appId = appId
+        self.superAppId = superAppId
+        request(permissions: permissions)
+    }
+    
+    private func request(permissions: [MiniAppPermissionScope.RawValue]) {
+        // request all permissions here
+    }
+    
     struct PresentationStyle {
         let type: MiniAppPresentationType
         let root: UIViewController
     }
     
-    public func show(presentationType: MiniAppPresentationType, root: UIViewController, isNavigationControllerRequired: Bool) {
+    public func show(presentationType: MiniAppPresentationType, root: UIViewController) {
         guard let rootViewController = rootViewController else {
             return
         }
@@ -42,12 +52,10 @@ public class MiniApp1Manager: MiniApp {
     public var superAppId: String
  
     public var rootViewController: UIViewController? {
-        return UIStoryboard.current.instantiateViewController(withIdentifier: "ViewController") as? ViewController
-    }
-    
-    public required init(appId: String, superAppId: String) {
-        self.appId = appId
-        self.superAppId = superAppId
+        guard let vc = UIStoryboard.current.instantiateViewController(withIdentifier: "ViewController") as? ViewController else {
+            return nil
+        }
+        return UINavigationController(rootViewController: vc)
     }
     
     public func dismiss(completion: (() -> Void)?) {
