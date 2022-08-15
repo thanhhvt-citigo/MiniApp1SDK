@@ -13,7 +13,7 @@ let package = Package(
             targets: ["MiniApp1SDK"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/thanhhvt-citigo/KVStandardConnection.git", branch: "Main")
+        .package(url: "https://github.com/thanhhvt-citigo/KVStandardConnection.git", branch: "main")
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
     ],
