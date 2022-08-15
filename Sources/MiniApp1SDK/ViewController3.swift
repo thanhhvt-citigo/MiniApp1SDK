@@ -22,20 +22,31 @@ class ViewController3: UIViewController {
         notificationCenter.getNotificationSettings { [weak self, center = notificationCenter] settings in
             switch settings.authorizationStatus {
             case .notDetermined:
-                self?.statusLabel.text = "Not requested"
+                DispatchQueue.main.async {
+                    self?.statusLabel.text = "Not requested"
+                }
                 center.requestAuthorization { success, error in
-                    if error != nil {
-                        self?.showAlert(title: "An error occur", message: "Request notification failed")
-                        self?.statusLabel.text = "Request failed"
+                    DispatchQueue.main.async {
+                        if error != nil {
+                            self?.showAlert(title: "An error occur", message: "Request notification failed")
+                            self?.statusLabel.text = "Request failed"
+                        } else {
+                            self?.statusLabel.text = success ? "Permission authorized" : "Permission denied"
+                        }
                     }
-                    self?.statusLabel.text = success ? "Permission authorized" : "Permission denied"
                 }
             case .authorized:
-                self?.statusLabel.text = "Permission authorized"
+                DispatchQueue.main.async {
+                    self?.statusLabel.text = "Permission authorized"
+                }
             case .denied:
-                self?.statusLabel.text = "Permission denied"
+                DispatchQueue.main.async {
+                    self?.statusLabel.text = "Permission denied"
+                }
             default:
-                self?.statusLabel.text = "Unknown"
+                DispatchQueue.main.async {
+                    self?.statusLabel.text = "Unknown"
+                }
             }
         }
     }
