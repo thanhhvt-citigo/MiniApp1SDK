@@ -14,7 +14,7 @@ class ViewController: UIViewController {
         navigationItem.title = "VC1"
     }
     @IBAction func showVC2Action(_ sender: Any) {
-        guard let vc2 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewController2") as? ViewController2 else {
+        guard let vc2 = UIStoryboard.current.instantiateViewController(withIdentifier: "ViewController2") as? ViewController2 else {
             return
         }
         

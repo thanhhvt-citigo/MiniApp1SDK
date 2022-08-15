@@ -16,7 +16,7 @@ class ViewController2: UIViewController {
     }
     
     @objc private func modalPresent() {
-        guard let vc4 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewController4") as? ViewController4 else {
+        guard let vc4 = UIStoryboard.current.instantiateViewController(withIdentifier: "ViewController4") as? ViewController4 else {
             return
         }
         present(vc4, animated: true)
